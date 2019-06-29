@@ -11,8 +11,7 @@
 
 
     <modules>
-        <module>Entities</module>
-        <module>Repository</module>
+        <module>Database</module>
         <module>Service</module>
         <module>Web</module>
     </modules>
