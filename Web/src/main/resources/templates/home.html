@@ -9,8 +9,6 @@
 
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-
 
 <form method="post" th:action="@{/logout}">
     <input type="submit" value="Sign Out"/>

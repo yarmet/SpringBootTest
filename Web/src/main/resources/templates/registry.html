@@ -7,8 +7,12 @@
 <body style="text-align: center">
 
 
-<form method="post" th:action="@{/registration}">
 
+
+<p th:text="${message}" style="color: red"></p>
+
+
+<form method="post" th:action="@{/registration}">
     <div>
         <label> User Name : <input name="username" type="text"/> </label>
     </div>
@@ -20,7 +24,6 @@
     <div>
         <input type="submit" value="Sign In"/>
     </div>
-
 </form>
 
 <a href="/login">login</a>
