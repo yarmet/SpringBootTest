@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Spring Security Example </title>
 </head>
 <body style="text-align: center">
 
-
-
-
 <p th:text="${message}" style="color: red"></p>
-
 
 <form method="post" th:action="@{/registration}">
     <div>
@@ -26,7 +21,7 @@
     </div>
 </form>
 
-<a href="/login">login</a>
+<a th:href="@{/login}">login</a>
 
 </body>
 </html>

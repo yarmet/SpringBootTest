@@ -20,6 +20,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordService passwordService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
@@ -35,7 +38,7 @@ public class UserService implements UserDetailsService {
         }
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        user.setPassword(BcPasswordEncoder.get().encode(user.getPassword()));
+        user.setPassword(passwordService.getBcCryptoPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
 
         return true;
