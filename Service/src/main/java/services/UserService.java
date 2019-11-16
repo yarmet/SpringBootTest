@@ -2,7 +2,8 @@ package services;
 
 import entities.Role;
 import entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,16 +13,15 @@ import org.springframework.stereotype.Service;
 import repositories.UserRepository;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class UserService implements UserDetailsService {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PasswordService passwordService;
+    private final UserRepository userRepository;
+    private final PasswordService passwordService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -58,4 +58,8 @@ public class UserService implements UserDetailsService {
         }
     }
 
+
+    public List<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable).getContent();
+    }
 }

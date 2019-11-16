@@ -1,7 +1,7 @@
 package web;
 
 import entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +10,15 @@ import services.UserService;
 import java.util.Map;
 
 @Controller
+@AllArgsConstructor
 public class RegistrationController {
 
-
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping("/registration")
     public String registry() {
+//        Pageable pageable = PageRequest.of(0, 2, Sort.by("id").descending());
+//        List<User> all = userService.findAll(pageable);
         return "registry";
     }
 

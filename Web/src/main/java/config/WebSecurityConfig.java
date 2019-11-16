@@ -1,6 +1,6 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,13 +13,11 @@ import services.UserService;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private PasswordService passwordService;
-
-    @Autowired
-    private UserService userService;
+    private final PasswordService passwordService;
+    private final UserService userService;
 
 
     @Override
