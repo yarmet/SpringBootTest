@@ -2,6 +2,7 @@ package services;
 
 import entities.Role;
 import entities.User;
+import entities.User_;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
